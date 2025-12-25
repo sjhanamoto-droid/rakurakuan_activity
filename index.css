@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Additional styles for the app */
 @keyframes fade-in {
   from {

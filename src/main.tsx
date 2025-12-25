@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
 import { MapPin, Clock, Users, ChevronDown, Star, CheckCircle, Info, Calendar, Phone, Utensils, Coffee, Crown, Sparkles, Flame, CloudRain } from 'lucide-react';
+import '../index.css';
 
 // --- Types ---
 interface RevealProps {
