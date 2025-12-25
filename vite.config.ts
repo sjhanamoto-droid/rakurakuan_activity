@@ -4,8 +4,10 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
+    // 開発時は base を / に、本番ビルド時は /SamuraiRestaurant_activityLP/ に設定
+    const base = mode === 'production' ? '/SamuraiRestaurant_activityLP/' : '/';
     return {
-      base: '/SamuraiRestaurant_activityLP/',
+      base,
       server: {
         port: 3000,
         host: '0.0.0.0',

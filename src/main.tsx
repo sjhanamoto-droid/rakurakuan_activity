@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
 import { MapPin, Clock, Users, ChevronDown, Star, CheckCircle, Info, Calendar, Phone, Utensils, Coffee, Crown, Sparkles, Flame, CloudRain } from 'lucide-react';
 import '../index.css';
+// 画像をimport方式で読み込む（ルート相対パスを避けるため）
+import sushiImage from './assets/images/sushi.jpg';
+import matchaImage from './assets/images/matcha.jpg';
 
 // --- Types ---
 interface RevealProps {
@@ -170,7 +173,7 @@ const ExperienceMenu = () => {
             <div className="bg-white rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300 group h-full flex flex-col">
               <div className="relative h-64 overflow-hidden">
                 <img 
-                  src="/images/sushi.jpg" 
+                  src={sushiImage} 
                   alt="Sushi Making" 
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />
@@ -209,7 +212,7 @@ const ExperienceMenu = () => {
             <div className="bg-white rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300 group h-full flex flex-col">
               <div className="relative h-64 overflow-hidden">
                 <img 
-                  src="/images/matcha.jpg" 
+                  src={matchaImage} 
                   alt="Matcha Tea Ceremony" 
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />
