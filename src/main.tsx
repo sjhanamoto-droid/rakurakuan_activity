@@ -110,7 +110,7 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
         </div>
 
         {/* タイトル */}
-        <h1 className="text-3xl md:text-4xl font-bold tracking-widest uppercase loading-text">
+        <h1 className="text-2xl md:text-3xl font-bold tracking-widest uppercase loading-text">
           {title.split('').map((char, i) => (
             <span key={i} className="loading-char inline-block">
               {char === ' ' ? '\u00A0' : char}
@@ -163,9 +163,10 @@ const Navbar = () => {
         </div>
         <a 
           href="#booking"
-          className="bg-[#C5A059] hover:bg-[#b08d4b] text-white px-5 py-2 rounded-sm font-semibold text-sm tracking-wide transition-colors uppercase"
+          className="bg-[#C5A059] hover:bg-[#b08d4b] text-white p-2 rounded-sm transition-colors flex items-center justify-center"
+          aria-label="Book Now"
         >
-          Book Now
+          <Calendar className="w-4 h-4" />
         </a>
       </div>
     </nav>
