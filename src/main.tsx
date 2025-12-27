@@ -248,9 +248,6 @@ const ExperienceMenu = () => {
                   alt="Sushi Making" 
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 text-xs uppercase tracking-wider backdrop-blur-sm">
-                  Chef Keigo Morisawa
-                </div>
               </div>
               <div className="p-8 flex-1 flex flex-col">
                 <h3 className="text-2xl font-bold text-[#1a1a1a] mb-2">Sushi Experience</h3>
