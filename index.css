@@ -16,4 +16,137 @@
   animation: fade-in 0.5s ease-in;
 }
 
+/* 高品質なローディングアニメーション */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(197, 160, 89, 0.4),
+                0 0 40px rgba(197, 160, 89, 0.2),
+                0 0 60px rgba(197, 160, 89, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(197, 160, 89, 0.6),
+                0 0 60px rgba(197, 160, 89, 0.4),
+                0 0 90px rgba(197, 160, 89, 0.2);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translateY(0) translateX(0) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(var(--tx)) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes text-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.loading-spinner {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.loading-text {
+  animation: text-reveal 1s ease-out forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+.loading-subtitle {
+  animation: text-reveal 1s ease-out forwards;
+  animation-delay: 0.6s;
+  opacity: 0;
+}
+
+.loading-char {
+  animation: float 3s ease-in-out infinite;
+  display: inline-block;
+}
+
+.loading-char:nth-child(1) { animation-delay: 0s; }
+.loading-char:nth-child(2) { animation-delay: 0.1s; }
+.loading-char:nth-child(3) { animation-delay: 0.2s; }
+.loading-char:nth-child(4) { animation-delay: 0.3s; }
+.loading-char:nth-child(5) { animation-delay: 0.4s; }
+.loading-char:nth-child(6) { animation-delay: 0.5s; }
+.loading-char:nth-child(7) { animation-delay: 0.6s; }
+.loading-char:nth-child(8) { animation-delay: 0.7s; }
+.loading-char:nth-child(9) { animation-delay: 0.8s; }
+.loading-char:nth-child(10) { animation-delay: 0.9s; }
+.loading-char:nth-child(11) { animation-delay: 1s; }
+.loading-char:nth-child(12) { animation-delay: 1.1s; }
+.loading-char:nth-child(13) { animation-delay: 1.2s; }
+.loading-char:nth-child(14) { animation-delay: 1.3s; }
+.loading-char:nth-child(15) { animation-delay: 1.4s; }
+.loading-char:nth-child(16) { animation-delay: 1.5s; }
+.loading-char:nth-child(17) { animation-delay: 1.6s; }
+.loading-char:nth-child(18) { animation-delay: 1.7s; }
+.loading-char:nth-child(19) { animation-delay: 1.8s; }
+.loading-char:nth-child(20) { animation-delay: 1.9s; }
+
+.loading-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.loading-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.8) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: particle-float 8s linear infinite;
+  --tx: 0px;
+}
+
+.loading-particle:nth-child(1) { left: 10%; --tx: 20px; animation-delay: 0s; }
+.loading-particle:nth-child(2) { left: 20%; --tx: -30px; animation-delay: 1s; }
+.loading-particle:nth-child(3) { left: 30%; --tx: 40px; animation-delay: 2s; }
+.loading-particle:nth-child(4) { left: 40%; --tx: -25px; animation-delay: 3s; }
+.loading-particle:nth-child(5) { left: 50%; --tx: 35px; animation-delay: 4s; }
+.loading-particle:nth-child(6) { left: 60%; --tx: -20px; animation-delay: 5s; }
+.loading-particle:nth-child(7) { left: 70%; --tx: 30px; animation-delay: 6s; }
+.loading-particle:nth-child(8) { left: 80%; --tx: -40px; animation-delay: 7s; }
+.loading-particle:nth-child(9) { left: 90%; --tx: 25px; animation-delay: 0.5s; }
+.loading-particle:nth-child(10) { left: 15%; --tx: -35px; animation-delay: 1.5s; }
+
 

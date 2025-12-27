@@ -5,6 +5,8 @@ import '../index.css';
 // 画像をimport方式で読み込む（ルート相対パスを避けるため）
 import sushiImage from './assets/images/sushi.jpg';
 import matchaImage from './assets/images/matcha.jpg';
+import exteriorImage from './assets/images/exterior.jpg';
+import ultimatePlanImage from './assets/images/ultimateplan.jpg';
 
 // --- Types ---
 interface RevealProps {
@@ -49,27 +51,95 @@ const Reveal: React.FC<RevealProps> = ({ children, delay = 0, className = "" }) 
 
 const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
   const [visible, setVisible] = useState(true);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    // プログレスバーのアニメーション
+    const progressInterval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(progressInterval);
+          return 100;
+        }
+        return prev + 2;
+      });
+    }, 40);
+
     const timer = setTimeout(() => {
-      setVisible(false);
-      setTimeout(onComplete, 500); // Wait for fade out
-    }, 2000);
-    return () => clearTimeout(timer);
+      setProgress(100);
+      setTimeout(() => {
+        setVisible(false);
+        setTimeout(onComplete, 800); // Wait for fade out
+      }, 300);
+    }, 2500);
+
+    return () => {
+      clearInterval(progressInterval);
+      clearTimeout(timer);
+    };
   }, [onComplete]);
 
-  if (!visible) return <div className="fixed inset-0 z-50 bg-black transition-opacity duration-500 opacity-0 pointer-events-none" />;
+  if (!visible) return <div className="fixed inset-0 z-50 bg-black transition-opacity duration-800 opacity-0 pointer-events-none" />;
+
+  const title = "Samurai Restaurant";
+  const subtitle = "Kyoto";
 
   return (
-    <div className="fixed inset-0 z-50 bg-[#1a1a1a] flex flex-col items-center justify-center text-white transition-opacity duration-500">
-      <div className="relative w-16 h-16 mb-4">
-        <div className="w-16 h-16 border-4 border-[#C5A059] border-t-transparent rounded-full animate-spin"></div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-[#C5A059] brush-text">侍</span>
+    <div className="fixed inset-0 z-50 bg-gradient-to-br from-[#0a0a0a] via-[#1a1a1a] to-[#0f0f0f] flex flex-col items-center justify-center text-white transition-opacity duration-800 overflow-hidden">
+      {/* 背景パーティクル */}
+      <div className="loading-particles">
+        {[...Array(10)].map((_, i) => (
+          <div key={i} className="loading-particle" />
+        ))}
+      </div>
+
+      {/* メインコンテンツ */}
+      <div className="relative z-10 flex flex-col items-center">
+        {/* ローディングスピナー */}
+        <div className="relative w-24 h-24 mb-8">
+          {/* 外側のリング */}
+          <div className="absolute inset-0 border-4 border-[#C5A059]/20 rounded-full"></div>
+          {/* 回転するリング */}
+          <div className="absolute inset-0 border-4 border-transparent border-t-[#C5A059] border-r-[#C5A059] rounded-full animate-spin loading-spinner"></div>
+          {/* 内側のグロー効果 */}
+          <div className="absolute inset-2 border-2 border-[#C5A059]/40 rounded-full animate-pulse"></div>
+          {/* 中央の文字 */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="text-[#C5A059] brush-text text-3xl">侍</span>
+          </div>
+        </div>
+
+        {/* タイトル */}
+        <h1 className="text-3xl md:text-4xl font-bold tracking-widest uppercase loading-text">
+          {title.split('').map((char, i) => (
+            <span key={i} className="loading-char inline-block">
+              {char === ' ' ? '\u00A0' : char}
+            </span>
+          ))}
+        </h1>
+        
+        {/* サブタイトル */}
+        <p className="text-base md:text-lg tracking-wider text-gray-300 mt-3 loading-subtitle">
+          {subtitle.split('').map((char, i) => (
+            <span key={i} className="loading-char inline-block">
+              {char}
+            </span>
+          ))}
+        </p>
+
+        {/* プログレスバー */}
+        <div className="mt-8 w-64 h-1 bg-gray-800 rounded-full overflow-hidden">
+          <div 
+            className="h-full bg-gradient-to-r from-[#C5A059] via-[#d4b068] to-[#C5A059] transition-all duration-300 ease-out"
+            style={{ width: `${progress}%` }}
+          >
+            <div className="h-full w-full bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse"></div>
+          </div>
         </div>
       </div>
-      <h1 className="text-2xl font-bold tracking-widest uppercase mt-4 text-[#F2F0E9]">Samurai Restaurant</h1>
-      <p className="text-sm tracking-wider text-gray-400 mt-2">Kyoto</p>
+
+      {/* 装飾的なグラデーションオーバーレイ */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a]/50 via-transparent to-transparent pointer-events-none"></div>
     </div>
   );
 };
@@ -143,7 +213,7 @@ const Hero = () => {
           </div>
           <div className="mt-8 flex items-center justify-center text-gray-400 text-xs tracking-wide">
             <MapPin className="w-4 h-4 mr-2" />
-            <span>Hotel Rakurakuan</span>
+            <a href="#access" className="hover:text-[#C5A059] transition-colors cursor-pointer">Hotel Rakurakuan</a>
           </div>
         </Reveal>
       </div>
@@ -235,7 +305,7 @@ const ExperienceMenu = () => {
                   <div className="font-bold text-lg text-[#1a1a1a]">¥7,700 <span className="text-xs font-normal text-gray-400">/ person</span></div>
                 </div>
 
-                <a href="#booking" className="block w-full text-center bg-[#1a1a1a] text-white py-3 uppercase tracking-wide text-sm hover:bg-[#333] transition-colors">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdFs3MGYV_IqDAapMPbv9ZkWZRb0dq-hEjjvvXt9egA_HmN9g/viewform?usp=header" target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-[#1a1a1a] text-white py-3 uppercase tracking-wide text-sm hover:bg-[#333] transition-colors">
                   Reserve Matcha
                 </a>
               </div>
@@ -276,7 +346,7 @@ const PremiumPlan = () => {
             <div className="grid md:grid-cols-2">
               <div className="relative h-64 md:h-auto group">
                  <img 
-                   src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1974&auto=format&fit=crop" 
+                   src={ultimatePlanImage} 
                    alt="Wagyu and Japanese Cuisine" 
                    className="w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
                  />
@@ -347,7 +417,7 @@ const PremiumPlan = () => {
 const WhyUs = () => {
   const features = [
     { title: "Professional Chef", icon: <Utensils className="w-6 h-6" />, desc: "Direct guidance from Chef Keigo Morisawa." },
-    { title: "Authentic Venue", icon: <MapPin className="w-6 h-6" />, desc: "Held inside the lounge of Hotel Rakurakuan." },
+    { title: "Authentic Venue", icon: <MapPin className="w-6 h-6" />, desc: "Held at the restaurant on the 1st floor of Rakurakuan." },
     { title: "Rain or Shine", icon: <CloudRain className="w-6 h-6" />, desc: "Indoor activity, perfect for rainy days in Kyoto." },
     { title: "Beginner Friendly", icon: <Users className="w-6 h-6" />, desc: "Step-by-step guidance for first-timers." }
   ];
@@ -413,11 +483,11 @@ const RecommendedFor = () => {
 
 const Access = () => {
   return (
-    <section className="py-20 bg-gray-50">
+    <section id="access" className="py-20 bg-gray-50" style={{ scrollMarginTop: '80px' }}>
       <div className="container mx-auto px-6">
         <Reveal>
           <h2 className="text-3xl font-bold text-center mb-3">Access</h2>
-          <p className="text-center text-gray-500 mb-10">Held inside the hotel lounge</p>
+          <p className="text-center text-gray-500 mb-10">Held at the restaurant on the 1st floor of Rakurakuan</p>
         </Reveal>
 
         <div className="max-w-5xl mx-auto bg-white p-4 shadow-lg rounded-lg">
@@ -442,13 +512,14 @@ const Access = () => {
               </div>
               <div>
                 <h3 className="font-bold text-lg mb-2">Venue Info</h3>
-                <p className="text-gray-600 text-sm">
-                  Held inside the hotel lounge.
+                <p className="text-gray-600 text-sm mb-4">
+                  Held at the restaurant on the 1st floor of Rakurakuan.
                 </p>
-              </div>
-              <div className="bg-amber-50 p-3 rounded text-xs text-amber-800 border border-amber-100">
-                <Info className="w-4 h-4 inline mr-1 mb-1" />
-                Note: Depending on events held inside Hotel Rakurakuan, the experience may be provided at the nearby hotel <strong>Rakuran-an</strong> instead.
+                <img 
+                  src={exteriorImage} 
+                  alt="Rakurakuan Exterior" 
+                  className="w-full rounded-lg shadow-md"
+                />
               </div>
             </div>
           </div>
@@ -523,10 +594,10 @@ const Booking = () => {
                 <h3 className="text-2xl font-bold mb-4">Matcha Experience</h3>
                 <p className="text-gray-400 mb-2">1 ~ 1.5 hours</p>
                 <p className="text-3xl font-bold text-white mb-6">¥7,700 <span className="text-sm font-normal text-gray-400">/ person</span></p>
-                <button className="w-full bg-[#6B8C42] hover:bg-[#5a7637] text-white font-bold py-4 rounded transition-colors uppercase tracking-widest flex items-center justify-center">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdFs3MGYV_IqDAapMPbv9ZkWZRb0dq-hEjjvvXt9egA_HmN9g/viewform?usp=header" target="_blank" rel="noopener noreferrer" className="w-full bg-[#6B8C42] hover:bg-[#5a7637] text-white font-bold py-4 rounded transition-colors uppercase tracking-widest flex items-center justify-center">
                    <Calendar className="mr-2 w-5 h-5" />
                    Book Matcha
-                </button>
+                </a>
              </div>
 
              <div className="bg-gradient-to-b from-[#1E1E1E] to-black border border-[#C5A059]/50 p-8 rounded-lg hover:shadow-[0_0_20px_rgba(197,160,89,0.3)] transition-all">
