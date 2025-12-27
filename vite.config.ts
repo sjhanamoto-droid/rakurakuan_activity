@@ -5,7 +5,9 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     // 開発時は base を / に、本番ビルド時は /SamuraiRestaurant_activityLP/ に設定
-    const base = mode === 'production' ? '/SamuraiRestaurant_activityLP/' : '/';
+    // process.env.NODE_ENV が 'production' の場合、またはコマンドが 'build' の場合は base を設定
+    const isProduction = process.env.NODE_ENV === 'production' || process.env.VITE_BUILD === 'true';
+    const base = isProduction ? '/SamuraiRestaurant_activityLP/' : '/';
     return {
       base,
       server: {
