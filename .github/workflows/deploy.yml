@@ -37,6 +37,12 @@ jobs:
           NODE_ENV: production
           VITE_BUILD: 'true'
 
+      - name: Ensure .nojekyll file exists
+        run: |
+          if [ ! -f dist/.nojekyll ]; then
+            touch dist/.nojekyll
+          fi
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
