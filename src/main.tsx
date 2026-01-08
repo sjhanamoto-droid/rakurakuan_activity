@@ -7,6 +7,7 @@ import sushiImage from './assets/images/sushi.jpg';
 import matchaImage from './assets/images/matcha.jpg';
 import exteriorImage from './assets/images/exterior.jpg';
 import ultimatePlanImage from './assets/images/ultimateplan.jpg';
+import newYearImage from './assets/images/newyear.jpg';
 
 // --- Types ---
 interface RevealProps {
@@ -249,6 +250,7 @@ const ExperienceMenu = () => {
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
+          
               <div className="p-8 flex-1 flex flex-col">
                 <h3 className="text-2xl font-bold text-[#1a1a1a] mb-2">Sushi Experience</h3>
                 <p className="text-[#C5A059] font-medium mb-4">Make Your Own Sushi</p>
@@ -317,7 +319,7 @@ const ExperienceMenu = () => {
 
 const PremiumPlan = () => {
   return (
-    <section className="py-20 bg-[#121212] relative overflow-hidden">
+    <section className="py-20 bg-[#121212] relative overflow-hidden" style={{ display: 'none' }}>
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#C5A059] to-transparent opacity-50"></div>
       <div className="absolute -right-20 -top-20 w-64 h-64 bg-[#C5A059]/5 rounded-full blur-3xl"></div>
@@ -401,6 +403,103 @@ const PremiumPlan = () => {
                   </div>
                   <a href="#booking" className="bg-[#C5A059] hover:bg-[#b08d4b] text-white px-8 py-4 rounded-sm font-bold uppercase tracking-widest text-sm transition-all shadow-lg shadow-[#C5A059]/20 hover:shadow-[#C5A059]/40 flex items-center justify-center">
                     Book Premium
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+};
+
+const NewYearPlan = () => {
+  return (
+    <section className="py-20 bg-[#121212] relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#C5A059] to-transparent opacity-50"></div>
+      <div className="absolute -right-20 -top-20 w-64 h-64 bg-[#C5A059]/5 rounded-full blur-3xl"></div>
+      <div className="absolute -left-20 -bottom-20 w-64 h-64 bg-[#C5A059]/5 rounded-full blur-3xl"></div>
+
+      <div className="container mx-auto px-6 relative z-10">
+        <Reveal>
+          <div className="text-center mb-12">
+            <span className="inline-block py-1 px-3 border border-[#C5A059] text-[#C5A059] text-xs tracking-[0.2em] uppercase mb-4">
+              New Year Special
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+              New Year Plan
+            </h2>
+            <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+              "Welcome the New Year with a Special Experience?"<br/>
+              Enjoy Japanese traditional culture and gourmet cuisine with this special New Year plan.
+            </p>
+          </div>
+        </Reveal>
+
+        <Reveal delay={200}>
+          <div className="bg-gradient-to-br from-[#1E1E1E] to-[#252525] border border-[#C5A059]/30 rounded-2xl overflow-hidden shadow-2xl max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2">
+              <div className="relative h-64 md:h-auto group">
+                 <img 
+                   src={newYearImage} 
+                   alt="New Year Special Plan" 
+                   className="w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
+                 />
+                 <div className="absolute inset-0 bg-gradient-to-t from-[#1E1E1E] via-transparent to-transparent md:bg-gradient-to-r"></div>
+                 <div className="absolute bottom-6 left-6 text-white">
+                    <div className="flex items-center gap-1 mb-2">
+                      <Star className="w-4 h-4 text-[#C5A059] fill-[#C5A059]" />
+                      <Star className="w-4 h-4 text-[#C5A059] fill-[#C5A059]" />
+                      <Star className="w-4 h-4 text-[#C5A059] fill-[#C5A059]" />
+                      <Star className="w-4 h-4 text-[#C5A059] fill-[#C5A059]" />
+                      <Star className="w-4 h-4 text-[#C5A059] fill-[#C5A059]" />
+                    </div>
+                    <p className="font-bold text-2xl font-serif">New Year Limited</p>
+                    <p className="text-sm text-gray-300 mt-1">Experience + Special Osechi Course</p>
+                 </div>
+              </div>
+
+              <div className="p-8 md:p-12 flex flex-col justify-center">
+                <h3 className="text-2xl font-bold text-[#C5A059] mb-6 flex items-center">
+                  <Crown className="w-6 h-6 mr-3" />
+                  What's Included
+                </h3>
+                
+                <div className="space-y-8 mb-8">
+                  <div>
+                    <h4 className="text-white font-bold text-lg flex items-center mb-3">
+                      <span className="w-1.5 h-1.5 bg-[#C5A059] rounded-full mr-3"></span>
+                      New Year Cultural Experience
+                    </h4>
+                    <p className="text-gray-400 text-sm ml-4 pl-0.5 leading-relaxed">
+                      A special experience perfect for the New Year. Enjoy compact versions of <strong>Sushi Making</strong> and <strong>Matcha Experience</strong>. Perfect for creating New Year memories.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 className="text-white font-bold text-lg flex items-center mb-3">
+                      <span className="w-1.5 h-1.5 bg-[#C5A059] rounded-full mr-3"></span>
+                      New Year Special Course
+                    </h4>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-gray-300 text-sm ml-4 pl-0.5">
+                      <li className="flex items-center"><Utensils className="w-4 h-4 mr-2 text-[#C5A059]"/> Osechi-style Appetizer</li>
+                      <li className="flex items-center"><Utensils className="w-4 h-4 mr-2 text-[#C5A059]"/> Wagyu Sukiyaki</li>
+                      <li className="flex items-center"><Utensils className="w-4 h-4 mr-2 text-[#C5A059]"/> New Year Sushi</li>
+                      <li className="flex items-center"><Utensils className="w-4 h-4 mr-2 text-[#C5A059]"/> Toshikoshi Soba</li>
+                      <li className="flex items-center"><Utensils className="w-4 h-4 mr-2 text-[#C5A059]"/> Ozoni (New Year Soup)</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between border-t border-white/10 pt-6 gap-4">
+                  <div>
+                     <p className="text-gray-400 text-xs uppercase tracking-widest mb-1">Package Price</p>
+                     <p className="text-3xl font-bold text-white">¥12,000 <span className="text-sm font-normal text-gray-500">~ / person</span></p>
+                  </div>
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLScJWPOvCi2S1Kom7fJ_J5g05Zl917oT8TRvMcvROj8DrQVDog/viewform" target="_blank" rel="noopener noreferrer" className="bg-[#C5A059] hover:bg-[#b08d4b] text-white px-8 py-4 rounded-sm font-bold uppercase tracking-widest text-sm transition-all shadow-lg shadow-[#C5A059]/20 hover:shadow-[#C5A059]/40 flex items-center justify-center">
+                    Book New Year Plan
                   </a>
                 </div>
               </div>
@@ -600,13 +699,13 @@ const Booking = () => {
 
              <div className="bg-gradient-to-b from-[#1E1E1E] to-black border border-[#C5A059]/50 p-8 rounded-lg hover:shadow-[0_0_20px_rgba(197,160,89,0.3)] transition-all">
                 <div className="flex justify-center mb-2"><Crown className="text-[#C5A059] w-6 h-6"/></div>
-                <h3 className="text-2xl font-bold mb-4 text-[#C5A059]">Ultimate Plan</h3>
-                <p className="text-gray-400 mb-2">Experience + 5 Courses</p>
-                <p className="text-3xl font-bold text-white mb-6">¥30,000 <span className="text-sm font-normal text-gray-400">/ person</span></p>
-                <button className="w-full bg-transparent border border-[#C5A059] text-[#C5A059] hover:bg-[#C5A059] hover:text-white font-bold py-4 rounded transition-colors uppercase tracking-widest flex items-center justify-center">
+                <h3 className="text-2xl font-bold mb-4 text-[#C5A059]">New Year Plan</h3>
+                <p className="text-gray-400 mb-2">Experience + Special Osechi Course</p>
+                <p className="text-3xl font-bold text-white mb-6">¥12,000 <span className="text-sm font-normal text-gray-400">~ / person</span></p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScJWPOvCi2S1Kom7fJ_J5g05Zl917oT8TRvMcvROj8DrQVDog/viewform" target="_blank" rel="noopener noreferrer" className="w-full bg-transparent border border-[#C5A059] text-[#C5A059] hover:bg-[#C5A059] hover:text-white font-bold py-4 rounded transition-colors uppercase tracking-widest flex items-center justify-center">
                    <Sparkles className="mr-2 w-5 h-5" />
-                   Book Premium
-                </button>
+                   Book New Year Plan
+                </a>
              </div>
           </div>
           
@@ -647,6 +746,7 @@ const App = () => {
           <Navbar />
           <Hero />
           <ExperienceMenu />
+          <NewYearPlan />
           <PremiumPlan />
           <WhyUs />
           <RecommendedFor />
