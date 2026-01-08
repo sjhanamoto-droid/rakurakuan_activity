@@ -496,7 +496,7 @@ const NewYearPlan = () => {
                 <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between border-t border-white/10 pt-6 gap-4">
                   <div>
                      <p className="text-gray-400 text-xs uppercase tracking-widest mb-1">Package Price</p>
-                     <p className="text-3xl font-bold text-white">¥15,000 <span className="text-sm font-normal text-gray-500">~ / person</span></p>
+                     <p className="text-3xl font-bold text-white">¥15,000 <span className="text-sm font-normal text-gray-500"> / person</span></p>
                   </div>
                   <a href="https://docs.google.com/forms/d/e/1FAIpQLScJWPOvCi2S1Kom7fJ_J5g05Zl917oT8TRvMcvROj8DrQVDog/viewform" target="_blank" rel="noopener noreferrer" className="bg-[#C5A059] hover:bg-[#b08d4b] text-white px-8 py-4 rounded-sm font-bold uppercase tracking-widest text-sm transition-all shadow-lg shadow-[#C5A059]/20 hover:shadow-[#C5A059]/40 flex items-center justify-center">
                     Book New Year Plan
@@ -701,7 +701,7 @@ const Booking = () => {
                 <div className="flex justify-center mb-2"><Crown className="text-[#C5A059] w-6 h-6"/></div>
                 <h3 className="text-2xl font-bold mb-4 text-[#C5A059]">New Year Plan</h3>
                 <p className="text-gray-400 mb-2">Experience + Special Osechi Course</p>
-                <p className="text-3xl font-bold text-white mb-6">¥15,000 <span className="text-sm font-normal text-gray-400">~ / person</span></p>
+                <p className="text-3xl font-bold text-white mb-6">¥15,000 <span className="text-sm font-normal text-gray-400"> / person</span></p>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLScJWPOvCi2S1Kom7fJ_J5g05Zl917oT8TRvMcvROj8DrQVDog/viewform" target="_blank" rel="noopener noreferrer" className="w-full bg-transparent border border-[#C5A059] text-[#C5A059] hover:bg-[#C5A059] hover:text-white font-bold py-4 rounded transition-colors uppercase tracking-widest flex items-center justify-center">
                    <Sparkles className="mr-2 w-5 h-5" />
                    Book New Year Plan
