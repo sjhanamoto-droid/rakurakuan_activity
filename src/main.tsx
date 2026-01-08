@@ -426,14 +426,14 @@ const NewYearPlan = () => {
         <Reveal>
           <div className="text-center mb-12">
             <span className="inline-block py-1 px-3 border border-[#C5A059] text-[#C5A059] text-xs tracking-[0.2em] uppercase mb-4">
-              New Year Special
+              January 2026 – Limited Time Only
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-              New Year Plan
+              NEW YEAR SPECIAL OMAKASE COURSE
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-              "Welcome the New Year with a Special Experience?"<br/>
-              Enjoy Japanese traditional culture and gourmet cuisine with this special New Year plan.
+              Step into the New Year with an exclusive Japanese dining experience.<br/>
+              Savor traditional flavors, premium ingredients, and Kyoto hospitality—available for a limited time only.
             </p>
           </div>
         </Reveal>
@@ -471,10 +471,11 @@ const NewYearPlan = () => {
                   <div>
                     <h4 className="text-white font-bold text-lg flex items-center mb-3">
                       <span className="w-1.5 h-1.5 bg-[#C5A059] rounded-full mr-3"></span>
-                      New Year Cultural Experience
+                      Premium Course with All-You-Can-Drink Sake
                     </h4>
                     <p className="text-gray-400 text-sm ml-4 pl-0.5 leading-relaxed">
-                      A special experience perfect for the New Year. Enjoy compact versions of <strong>Sushi Making</strong> and <strong>Matcha Experience</strong>. Perfect for creating New Year memories.
+                      A special New Year experience designed for international guests.<br/>
+                      Enjoy a thoughtfully curated Japanese dining experience inspired by traditional New Year cuisine, perfect for celebrating the season and creating lasting memories in Kyoto.
                     </p>
                   </div>
 
@@ -484,11 +485,13 @@ const NewYearPlan = () => {
                       New Year Special Course
                     </h4>
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-gray-300 text-sm ml-4 pl-0.5">
-                      <li className="flex items-center"><Utensils className="w-4 h-4 mr-2 text-[#C5A059]"/> Osechi-style Appetizer</li>
-                      <li className="flex items-center"><Utensils className="w-4 h-4 mr-2 text-[#C5A059]"/> Wagyu Sukiyaki</li>
-                      <li className="flex items-center"><Utensils className="w-4 h-4 mr-2 text-[#C5A059]"/> New Year Sushi</li>
-                      <li className="flex items-center"><Utensils className="w-4 h-4 mr-2 text-[#C5A059]"/> Toshikoshi Soba</li>
-                      <li className="flex items-center"><Utensils className="w-4 h-4 mr-2 text-[#C5A059]"/> Ozoni (New Year Soup)</li>
+                      <li className="flex items-center"><Utensils className="w-4 h-4 mr-2 text-[#C5A059]"/> Mini Osechi (black soybeans, herring roe, datemaki)</li>
+                      <li className="flex items-center"><Utensils className="w-4 h-4 mr-2 text-[#C5A059]"/> Mini Ozoni (Kyoto-style New Year soup with grilled mochi experience)</li>
+                      <li className="flex items-center"><Utensils className="w-4 h-4 mr-2 text-[#C5A059]"/> Chef's Choice Nigiri Sushi (7 pieces)</li>
+                      <li className="flex items-center"><Utensils className="w-4 h-4 mr-2 text-[#C5A059]"/> Jumbo Fried Prawns (2 pieces)</li>
+                      <li className="flex items-center"><Utensils className="w-4 h-4 mr-2 text-[#C5A059]"/> Wagyu Beef Bowl</li>
+                      <li className="flex items-center"><Utensils className="w-4 h-4 mr-2 text-[#C5A059]"/> Samurai Ramen (New Year special with extra chashu & yuzu)</li>
+                      <li className="flex items-center"><Utensils className="w-4 h-4 mr-2 text-[#C5A059]"/> Kyoto-style Matcha Dessert</li>
                     </ul>
                   </div>
                 </div>
