@@ -344,7 +344,7 @@ const PremiumPlan = () => {
         <Reveal delay={200}>
           <div className="bg-gradient-to-br from-[#1E1E1E] to-[#252525] border border-[#C5A059]/30 rounded-2xl overflow-hidden shadow-2xl max-w-5xl mx-auto">
             <div className="flex flex-col">
-              <div className="relative h-64 md:h-80 group">
+              <div className="relative h-96 md:h-[450px] group">
                  <img 
                    src={ultimatePlanImage} 
                    alt="Wagyu and Japanese Cuisine" 
@@ -441,7 +441,7 @@ const NewYearPlan = () => {
         <Reveal delay={200}>
           <div className="bg-gradient-to-br from-[#1E1E1E] to-[#252525] border border-[#C5A059]/30 rounded-2xl overflow-hidden shadow-2xl max-w-5xl mx-auto">
             <div className="flex flex-col">
-              <div className="relative h-64 md:h-80 group">
+              <div className="relative h-96 md:h-[450px] group">
                  <img 
                    src={newYearImage} 
                    alt="New Year Special Plan" 
