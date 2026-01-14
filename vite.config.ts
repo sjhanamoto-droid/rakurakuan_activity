@@ -15,6 +15,18 @@ export default defineConfig(({ mode }) => {
         port: 5173,
         host: 'localhost',
         strictPort: false,
+        open: false,
+        hmr: {
+          overlay: true,
+          port: 5173,
+        },
+        watch: {
+          usePolling: true, // ファイル変更の監視を確実にする
+          interval: 300, // ポーリング間隔（ms）
+        },
+        fs: {
+          strict: false, // ファイルシステムの厳密なチェックを無効化
+        },
       },
       plugins: [react()],
       define: {

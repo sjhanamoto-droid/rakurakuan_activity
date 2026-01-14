@@ -319,7 +319,7 @@ const ExperienceMenu = () => {
 
 const PremiumPlan = () => {
   return (
-    <section className="py-20 bg-[#121212] relative overflow-hidden" style={{ display: 'none' }}>
+    <section className="py-20 bg-[#121212] relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#C5A059] to-transparent opacity-50"></div>
       <div className="absolute -right-20 -top-20 w-64 h-64 bg-[#C5A059]/5 rounded-full blur-3xl"></div>
@@ -343,14 +343,14 @@ const PremiumPlan = () => {
 
         <Reveal delay={200}>
           <div className="bg-gradient-to-br from-[#1E1E1E] to-[#252525] border border-[#C5A059]/30 rounded-2xl overflow-hidden shadow-2xl max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-2">
-              <div className="relative h-64 md:h-auto group">
+            <div className="flex flex-col">
+              <div className="relative h-64 md:h-80 group">
                  <img 
                    src={ultimatePlanImage} 
                    alt="Wagyu and Japanese Cuisine" 
                    className="w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
                  />
-                 <div className="absolute inset-0 bg-gradient-to-t from-[#1E1E1E] via-transparent to-transparent md:bg-gradient-to-r"></div>
+                 <div className="absolute inset-0 bg-gradient-to-t from-[#1E1E1E] via-transparent to-transparent"></div>
                  <div className="absolute bottom-6 left-6 text-white">
                     <div className="flex items-center gap-1 mb-2">
                       <Star className="w-4 h-4 text-[#C5A059] fill-[#C5A059]" />
@@ -440,14 +440,14 @@ const NewYearPlan = () => {
 
         <Reveal delay={200}>
           <div className="bg-gradient-to-br from-[#1E1E1E] to-[#252525] border border-[#C5A059]/30 rounded-2xl overflow-hidden shadow-2xl max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-2">
-              <div className="relative h-64 md:h-auto group">
+            <div className="flex flex-col">
+              <div className="relative h-64 md:h-80 group">
                  <img 
                    src={newYearImage} 
                    alt="New Year Special Plan" 
                    className="w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
                  />
-                 <div className="absolute inset-0 bg-gradient-to-t from-[#1E1E1E] via-transparent to-transparent md:bg-gradient-to-r"></div>
+                 <div className="absolute inset-0 bg-gradient-to-t from-[#1E1E1E] via-transparent to-transparent"></div>
                  <div className="absolute bottom-6 left-6 text-white">
                     <div className="flex items-center gap-1 mb-2">
                       <Star className="w-4 h-4 text-[#C5A059] fill-[#C5A059]" />
@@ -710,6 +710,17 @@ const Booking = () => {
                    Book New Year Plan
                 </a>
              </div>
+
+             <div className="bg-gradient-to-b from-[#1E1E1E] to-black border border-[#C5A059]/50 p-8 rounded-lg hover:shadow-[0_0_20px_rgba(197,160,89,0.3)] transition-all">
+                <div className="flex justify-center mb-2"><Crown className="text-[#C5A059] w-6 h-6"/></div>
+                <h3 className="text-2xl font-bold mb-4 text-[#C5A059]">Premium Plan</h3>
+                <p className="text-gray-400 mb-2">Experience + 5-Course Meal</p>
+                <p className="text-3xl font-bold text-white mb-6">¥30,000 <span className="text-sm font-normal text-gray-400"> / person</span></p>
+                <a href="#booking" className="w-full bg-transparent border border-[#C5A059] text-[#C5A059] hover:bg-[#C5A059] hover:text-white font-bold py-4 rounded transition-colors uppercase tracking-widest flex items-center justify-center">
+                   <Crown className="mr-2 w-5 h-5" />
+                   Book Premium
+                </a>
+             </div>
           </div>
           
           <div className="mt-8 flex items-center justify-center text-gray-500 text-sm">
@@ -749,8 +760,8 @@ const App = () => {
           <Navbar />
           <Hero />
           <ExperienceMenu />
-          <NewYearPlan />
           <PremiumPlan />
+          <NewYearPlan />
           <WhyUs />
           <RecommendedFor />
           <Access />
